@@ -14,18 +14,14 @@
 		<div class="container">
 			<h1>Welcome!</h1>
 			<div class="row">
-				<div class="col-md-4 col-ms-4">
-				<p>published: date</p>
-				<h2><a href="">My 1 post</a></h2>Bacon ipsum dolor amet ham shankle picanha, pork chop rump kevin alcatra. Salami doner capicola ribeye pig corned beef picanha cupim leberkas turkey kevin shoulder flank. Drumstick pig beef ribs bacon short ribs. Biltong sirloin shank boudin, ground round prosciutto pork loin bresaola cow picanha landjaeger. Pork loin chuck ham beef ribs t-bone shankle tenderloin venison corned beef sirloin pancetta bresaola. Jowl cow shoulder, pastrami pig sirloin beef ribs turducken rump kevin leberkas. Turducken tongue capicola tenderloin ribeye meatloaf short loin shank ground round pastrami drumstick pancetta.</div>
-				<div class="col-md-4 col-ms-4">
-				<p>published: date</p>
-				<h2><a href="">My 2 post</a></h2>Bacon ipsum dolor amet ham shankle picanha, pork chop rump kevin alcatra. Salami doner capicola ribeye pig corned beef picanha cupim leberkas turkey kevin shoulder flank. Drumstick pig beef ribs bacon short ribs. Biltong sirloin shank boudin, ground round prosciutto pork loin bresaola cow picanha landjaeger. Pork loin chuck ham beef ribs t-bone shankle tenderloin venison corned beef sirloin pancetta bresaola. Jowl cow shoulder, pastrami pig sirloin beef ribs turducken rump kevin leberkas. Turducken tongue capicola tenderloin ribeye meatloaf short loin shank ground round pastrami drumstick pancetta.</div>
-				<div class="col-md-4 col-ms-4">
-				<p>published: date</p>
-				<h2><a href="">My 3 post</a></h2>Bacon ipsum dolor amet ham shankle picanha, pork chop rump kevin alcatra. Salami doner capicola ribeye pig corned beef picanha cupim leberkas turkey kevin shoulder flank. Drumstick pig beef ribs bacon short ribs. Biltong sirloin shank boudin, ground round prosciutto pork loin bresaola cow picanha landjaeger. Pork loin chuck ham beef ribs t-bone shankle tenderloin venison corned beef sirloin pancetta bresaola. Jowl cow shoulder, pastrami pig sirloin beef ribs turducken rump kevin leberkas. Turducken tongue capicola tenderloin ribeye meatloaf short loin shank ground round pastrami drumstick pancetta.</div>
-				<div class="col-md-4 col-ms-4">
-				<p>published: date</p>
-				<h2><a href="">My 4 post</a></h2>Bacon ipsum dolor amet ham shankle picanha, pork chop rump kevin alcatra. Salami doner capicola ribeye pig corned beef picanha cupim leberkas turkey kevin shoulder flank. Drumstick pig beef ribs bacon short ribs. Biltong sirloin shank boudin, ground round prosciutto pork loin bresaola cow picanha landjaeger. Pork loin chuck ham beef ribs t-bone shankle tenderloin venison corned beef sirloin pancetta bresaola. Jowl cow shoulder, pastrami pig sirloin beef ribs turducken rump kevin leberkas. Turducken tongue capicola tenderloin ribeye meatloaf short loin shank ground round pastrami drumstick pancetta.</div>
+				{% for post in posts %}
+					<div class="col-md-4 col-sm-4">
+						<h1><a href="">{{ post.title }}</a></h1>
+						<p>published: {{ post.published_date }}</p>
+						<p>{{ post.text|linebreaks }}</p>
+					</div>
+				{% endfor %}
+				</div>
 			</div>
 		</div>
 
