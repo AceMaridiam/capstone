@@ -1,21 +1,29 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hello World!</title>
+	<title>Dougink | Home</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static "css/blog.css" %}">
+	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 	<div class="page-wrapper">
 
-		<div class="container-fluid">
-			<header></header>
+		<div class="row">
+			<header class="page-header">
+				<h1>Dougink</h1>
+				<h2>The pen and ink art of Douglas Haghan</h2>
+			</header>
+		</div>
 		</div>
 		<div class="container">
-			<h1>Welcome!</h1>
 			<div class="row">
 				{% for post in posts %}
-					<div class="col-md-4 col-sm-4">
+					<div class="col-md-4 col-sm-4 post">
 						<h1><a href="">{{ post.title }}</a></h1>
 						<p>published: {{ post.published_date }}</p>
 						<p>{{ post.text|linebreaks }}</p>
