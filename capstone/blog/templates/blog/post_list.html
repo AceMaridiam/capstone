@@ -2,18 +2,22 @@
 
 {% block content %}
 
+	<div class="page-wrapper">
+
 		<div class="container">
 			<div class="row">
 				{% for post in posts %}
 					<div class="col-md-4 col-sm-4 post">
 						<h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
+						<img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}" class="img-responsive">
 						<p>published: {{ post.published_date }}</p>
-						<p>{{ post.text|linebreaks }}</p>
 					</div>
 				{% endfor %}
 				</div>
 			</div>
 		</div>
+
+	</div>
 
 {% endblock %}
 
