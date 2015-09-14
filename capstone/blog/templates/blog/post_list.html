@@ -8,7 +8,7 @@
 
 					{% for post in posts %}
 
-						<div class="col-md-4 col-sm-4 post">
+						<div class="col-md-4 col-sm-6 col-xs-6 post">
 							<a href="#" class="pop"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}" class="img-responsive"></a>
 							<div class="hover-info">
 								<h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
