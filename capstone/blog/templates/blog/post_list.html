@@ -11,36 +11,32 @@
 						<div class="col-md-4 col-sm-6 col-xs-6 post">
 							<a href="#" class="pop"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}" class="img-responsive"></a>
 							<div class="hover-info">
-								<h1><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
-								<p>published: {{ post.published_date }}</p>
-								<a href="{% url "blog.views.post_detail" pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+								<h2><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h2>
 							</div>
 						</div>
 
-							<!-- Modal -->
-								<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								  <div class="modal-dialog" data-dismiss="modal">
-								    <div class="modal-content"  >              
-								      <div class="modal-body">
-								      	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								        <img src="" class="imagepreview" style="width: 100%;" >
-								      </div> 
-								      <div class="modal-footer">
-								          <div class="col-xs-12">
-								               <p class="text-left">1. line of description<br>2. line of description <br>3. line of description</p>
-								          </div>
-								      </div> 
-								    </div>
-								  </div>
-								</div>
-							<!--/ end moal -->
+						<!-- Modal -->
+						<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog" data-dismiss="modal">
+						    <div class="modal-content"  >              
+						      <div class="modal-body">
+						      	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <img src="" class="imagepreview" style="width: 100%;" >
+						      </div> 
+						      <div class="modal-footer">
+						          <div class="col-xs-12">
+						               <p class="text-left">1. line of description<br>2. line of description <br>3. line of description</p>
+						          </div>
+						      </div> 
+						    </div>
+						  </div>
+						</div>
+						<!--/ end moal -->
 
 					{% endfor %}
 
-				</div>
 			</div>
 		</div>
-
 	</div>
 
 {% endblock %}
