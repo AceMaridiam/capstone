@@ -55,6 +55,11 @@ a.btn.btn-default {
 }
 .page-header h1 {
   margin: 0;
+  color: white;  /* Fallback: assume this color ON TOP of image */
+  background: url('/media/images/4.jpg') no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 220px 75px;
 }
 .page-header h2 {
   font-size: 1.7em;
