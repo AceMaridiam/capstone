@@ -4,11 +4,17 @@
 
     <div class="page-wrapper">
         <div class="container">
-            <div class="post">
-
+            
+            <section class="post">
                 <h1>{{ post.title }}</h1>
-                <p><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}"></p>
-                <p>{{ post.text|linebreaks }}</p>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}"></p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p>{{ post.text|linebreaks }}</p>
+                    </div>
+                </div>
                 {# <p>published: {{ post.published_date }}</p> #}
                 <div class="row">
                     {% if post.published_date %}
@@ -25,33 +31,45 @@
                         <a class="btn btn-default" href="{% url "post_remove" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                     </div>
                 </div>
+            </section>
+            <hr>
+            <section class="comments">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <h2>Comments: </h2>
+                    </div>
+                    <div class="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-8 post-comment">
+                        <a class="btn btn-default" href="{% url "add_comment_to_post" pk=post.pk %}">Add comment</a>
+                    </div>
+                </div>
 
-                <hr>
-                <a class="btn btn-default" href="{% url "add_comment_to_post" pk=post.pk %}">Add comment</a>
                 {% for comment in post.comments.all %}
+                <div class="row">
                     {% if user.is_authenticated or comment.approved_comment %}
-                    <div class="comment">
-                        <div class="date">
-                            <div class="col-sm-4">
-                                <p>{{ comment.created_date }}</p>
-                            </div>
-                            <div class="col-sm-8">
+                        <div class="col-md-8 col-sm-8 col-xs-8">
+                            <div class="comment">
                                 {% if not comment.approved_comment %}
                                     <a class="btn btn-default" href="{% url "comment_remove" pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                                     <a class="btn btn-default" href="{% url "comment_approve" pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                                 {% endif %}
+                                <h4>{{ comment.author }}</h4>
+                                <p>{{ comment.text }}</p>
                             </div>
                         </div>
-                        <a href="{% url "blog.views.post_detail" pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-                        <strong>{{ comment.author }}</strong>
-                        <p>{{ comment.text|linebreaks }}</p>
-                    </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4">
+                            <div class="date">
+                                <p>{{ comment.created_date|date:"M/d/Y" }}</p>
+                            </div>
+                        </div>
+                            {# <a href="{% url "blog.views.post_detail" pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a> #}
+                       {#  </div> #}
                     {% endif %}
-                {% empty %}
-                    <p>No comments here yet :(</p>
-                {% endfor %}
-
-            </div>
+                </div>
+                    {% empty %}
+                        <p>No comments here yet :(</p>
+                    {% endfor %}
+            </section>
+                
         </div>
     </div>
     

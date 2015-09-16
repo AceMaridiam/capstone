@@ -9,25 +9,26 @@
 	<link rel="stylesheet" href="{% static "css/blog.css" %}">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}fonts/dougink/stylesheet.css" type="text/css">
 	<link rel="stylesheet" href="{{ MEDIA_URL }}fonts/amatic/stylesheet.css" type="text/css">
+	<link rel="stylesheet" href="{{ MEDIA_URL }}fonts/dougink-icons/styles.css" type="text/css">
 </head>
 <body>
 
-<div class="row">
-	<header class="page-header">
-		<a href="{% url "post_list" %}" class="img-responsive">
-			<h1>Dougink</h1>
-		</a>
-		<h2>The pen and ink art of Douglas Haghan</h2>
-	</header>
-</div>
+
+<header class="page-header">
+	<a href="{% url "post_list" %}" class="img-responsive">
+		<h1>Dougink</h1>
+	</a>
+	<h2>The pen and ink art of Douglas Haghan</h2>
+</header>
+
 
 {% block content %}
 {% endblock %}
 
 <footer>
-	<div class="row">
+	<div class="container">
 		<div class="col-md-2 col-sm-2 col-xs-12">
-			<span>DougInk &copy;{{ year }}</span>
+			<span class="copyright">DougInk &copy;{{ year }}</span>
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-12">
 			{% if user.is_authenticated %}
@@ -42,16 +43,16 @@
 </footer>
 
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script>
-			$(function() {
-				$('.pop').on('click', function() {
-					$('.imagepreview').attr('src', $(this).find('img').attr('src'));
-					$('#imagemodal').modal('show');   
-				});		
-			});
-		</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+	$(function() {
+		$('.pop').on('click', function() {
+			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
+			$('#imagemodal').modal('show');   
+		});		
+	});
+</script>
 
 </body>
 </html>

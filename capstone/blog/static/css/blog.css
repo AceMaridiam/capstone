@@ -5,7 +5,7 @@ p, a, li, ul, td {
   line-height: .5em;
 }
 h1, h2, h3 {
-    font-family: 'douginkmedium';
+    font-family: douginkmedium;
 }
 h1 {
   3rem;
@@ -16,14 +16,37 @@ h2 {
 h3 {
   2rem;
 }
-a {
-    color: #000;
-    font-family: 'douginkmedium';
+a, label {
+  color: #000;
+  font-family: amatic_scregular;
 }
 a:hover {
   text-decoration: none;
 }
-
+a.btn.btn-default {
+  float: right;
+  margin: 0 5px;
+}
+.copyright {
+  font-family: amatic_scregular;
+  color: #fff;
+  font-size: 2em;
+  top: 10px;
+  position: absolute;
+}
+.comments {
+  margin-bottom: 10px;
+}
+.comments p,
+.date p {
+  color: #000;
+}
+.comments .row:nth-child(2n) {
+  border-bottom: 1px solid lightgrey;
+}
+.date {
+  margin-top: 30px;
+}
 .page-header {
     background-color: #000;
     margin: 0;
@@ -84,6 +107,7 @@ footer span {
     float: right;
     font-size: 26pt;
     margin-right: 20px;
+    line-height: 1.5em;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -101,10 +125,13 @@ footer span {
     padding: 0;
     overflow: hidden;
 }
+.post-list img {
+  width: 100%;
+  max-height: 300px;
+  min-height: 300px;
+}
 .post img {
-    width: 100%;
-    max-height: 300px;
-    min-height: 300px;
+  width: 100%;
 }
 /*.hover-info {
     position: absolute;
@@ -130,3 +157,40 @@ footer span {
     opacity: 1;
     height: 100%;
 }*/
+
+/* Login Page */
+
+.row.login-form {
+  text-align: center;
+  padding: 100px;
+}
+.row.login-form label {
+  font-size: 2em;
+  padding-right: .5em;
+}
+.icon-squirrel {
+  font-family: dougink-icons;
+  content: 'a';
+  font-size: 10em;
+  color: #000;
+}
+.icon-squirrel:hover {
+  text-shadow: -18px -11px 40px #821515, 9px 17px 40px #821515;
+}
+#login p {
+  color: #000;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/* Edit page */
+
+.row.edit-form {
+  text-align: center;
+}
+.edit-form .post-form textarea, 
+.edit-form .post-form input {
+  margin: 0 15px;
+}
