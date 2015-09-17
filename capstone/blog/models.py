@@ -4,6 +4,9 @@ from time import time
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+import urllib, hashlib
+from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
+
 # Create your models here.
 
 def generate_filename(instance, filename):
@@ -48,3 +51,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+# Gravatar
+# Set your variables here
+email = "someone@somewhere.com"
+default = "http://www.example.com/default.jpg"
+size = 300
+ 
+# construct the url
+gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+
+

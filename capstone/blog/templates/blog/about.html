@@ -1,12 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load gravatar %}
 
 {% block content %}
 
-	<div class="row">
-		<div class="col-md-6">
-			<h1>Hi</h1>
-		</div>
-		<div class="col-md-6">
+	<div class="about row">
+		<div class="col-md-12">
+			<p id="gravImg">{% gravatar user.email 300 "doug.haghan@gmail.com" %}</p>
 			<h1>Teenage Mutant Leela's Hurdles</h1>
 			<p>Please, Don-Bot&hellip; look into your hard drive, and open your mercy file! Spare me your space age technobabble, Attila the Hun! No, she'll probably make me do it. I saw you with those two "ladies of the evening" at Elzars. Explain that. Well, thanks to the Internet, I'm now bored with sex. Is there a place on the web that panders to my lust for violence?</p>
 			<h2>The Why of Fry</h2>

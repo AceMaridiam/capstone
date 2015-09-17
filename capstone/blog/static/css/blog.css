@@ -209,6 +209,20 @@ button {
   margin: 0 15px;
 }
 
+/* About Page */
+
+.about {
+  margin: 20px 0;
+}
+.about .gravatar {
+  border-radius: 50%;
+  border: 3px solid #000;
+}
+.about p#gravImg {
+  float: left;
+  padding-right: 20px;
+}
+
 /* Post Button Animation */
 
 #container {
@@ -335,9 +349,13 @@ button {
     margin: 0;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .copyright {
     display: block;
+  }
+  .about p#gravImg {
+    text-align: center;
+    float: none;
   }
 }
 
