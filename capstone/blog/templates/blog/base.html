@@ -15,26 +15,43 @@
 
 
 <header class="page-header">
-	<a href="{% url "post_list" %}" class="img-responsive">
+  <div class=" logo col-sm-7 col-xs-7">
+	<a href="/">
 		<h1>Dougink</h1>
 	</a>
 	<h2>The pen and ink art of Douglas Haghan</h2>
+  </div>
+  <div class="menu col-sm-5 col-xs-5">
+  	<ul>
+		<li><a href="{% url 'about' %}">About</a></li>
+		<li><a href="">Facebook</a></li>
+		<li><a href="">Twitter</a></li>
+	</ul>
+  </div>
 </header>
 
-
-{% block content %}
-{% endblock %}
+<div id="wrapper">
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+</div>
 
 <footer>
 	<div class="container">
 		<div class="col-md-2 col-sm-2 col-xs-12">
-			<span class="copyright">DougInk &copy;{{ year }}</span>
+			<p class="copyright">DougInk &copy;{{ year }}</p>
 		</div>
 		<div class="col-md-10 col-sm-10 col-xs-12">
 			{% if user.is_authenticated %}
-				<a href="{% url "post_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-				<a href="{% url "post_draft_list" %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-				<p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url "django.contrib.auth.views.logout" %}">Log out</a>)</small></p>
+				<a href="{% url "post_new" %}" class="top-menu">
+					<div id="container">
+					  <div class="dot"></div>
+					  <div class="pulse"></div>
+					</div>
+				</a>
+				<a href="{% url "post_draft_list" %}" class="top-menu"><h2>Drafts</h2></a>
+				<a href="{% url "django.contrib.auth.views.logout" %}"><p class="top-menu">Hello {{ user.username }} | <em>Log out</a></em></p>
 			{% else %}
 				<a href="{% url "django.contrib.auth.views.login" %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
 			{% endif %}

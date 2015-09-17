@@ -2,8 +2,7 @@
 
 {% block content %}
 
-	<div class="container">
-		<div class="row edit-form">
+		<div class="edit-form">
 			<h1>New Post</h1>
 			<form method="POST" action="" class="post-form" enctype="multipart/form-data">
 				{% csrf_token %}
@@ -11,6 +10,5 @@
 				<button type="submit" class="save btn btn-default">Save</button>
 			</form>
 		</div>
-	</div>
 	
 {% endblock %}
