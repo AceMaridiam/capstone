@@ -17,10 +17,11 @@ class Post(models.Model):
 	author         = models.ForeignKey('auth.User')
 	title          = models.CharField(max_length=255)
 	text           = models.TextField()
+	duration       = models.TimeField()
 	created_date   = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	image          = models.ImageField(upload_to="images/", blank=True, null=True)
-
+	image          = models.ImageField(upload_to="images/", blank=True, null=True)		
+	
 	def publish(self):
 		self.published_date = timezone.now()
 		self.save()
@@ -28,6 +29,12 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
+class Tool(models.Model):
+	tool_type = models.CharField(max_length=255)
+	tool     = models.ForeignKey(Post)
+
+	def __str__(self):
+		return self.tool_type
 
 @receiver(post_delete, sender=Post)
 def image_post_delete_handler(sender, **kwargs):
