@@ -74,6 +74,10 @@ a.btn.btn-default {
   background-size: 325px 175px;
   display: inline-block;
 }
+.page-header h2 {
+  color: #fff;
+  font-size: 2.5em;
+}
 h2 {
   font-family: amaticbold;
   font-size: 2.3em;

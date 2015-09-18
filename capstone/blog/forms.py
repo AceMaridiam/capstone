@@ -11,7 +11,6 @@ class PostForm(forms.ModelForm):
 				'duration',
 				)
 
-
 class CommentForm(forms.ModelForm):
 	 class Meta:
 	 	model = Comment
