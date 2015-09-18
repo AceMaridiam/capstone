@@ -24,6 +24,9 @@ a.btn.btn-default {
 #wrapper {
   min-height: 500px;
 }
+.post-list {
+  overflow: auto;
+}
 .menu {
   margin-top: 10px;
 }
@@ -71,10 +74,10 @@ a.btn.btn-default {
   background-size: 325px 175px;
   display: inline-block;
 }
-.page-header h2 {
-  font-family: amatic_scregular;
+h2 {
+  font-family: amaticbold;
   font-size: 2.3em;
-  color: #fff;
+  color: #000;
   margin-top: 0;
 }
 .hover-info h2 {
@@ -82,8 +85,9 @@ a.btn.btn-default {
   color: #000;
 }
 footer {
-    background-color: #000;
-    min-height: 50px;
+  background-color: #000;
+  min-height: 80px;
+  padding: 10px;
 }
 footer a {
   color: #fff;
@@ -128,6 +132,13 @@ footer span {
   color: #000000;
 }
 
+.post-box {
+  height: 200px;
+  background: lightgrey;
+  padding: 20px 0;
+  position: relative;
+}
+
 
 /# New styles #/
 
@@ -146,6 +157,11 @@ footer span {
 }
 .post img {
   width: 100%;
+}
+.logout {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
 }
 /*.hover-info {
     position: absolute;
@@ -208,6 +224,9 @@ button {
 .edit-form .post-form input {
   margin: 0 15px;
 }
+.edit-form button {
+  margin-bottom: 10px;
+}
 
 /* About Page */
 
@@ -230,6 +249,9 @@ button {
   margin-left: 30px;
   position: relative;
   background: #45453f;
+  position: absolute;
+  top: 10px;
+  left: 50%;
 }
 
 .pulse {
@@ -243,7 +265,6 @@ button {
   z-index: 10;
   position: absolute;
 }
-
 .dot {
   border: 10px solid #428bca;
   background: transparent;
@@ -263,6 +284,13 @@ button {
   left: -15px;
   z-index: 1;
   opacity: 0;
+}
+.pulse:hover,
+.dot:hover,
+.pulse:active,
+.dot:active {
+  border: 5px solid #014C8C;
+  background-color: #014C8C;
 }
 
 @-moz-keyframes pulse {
@@ -348,7 +376,19 @@ button {
   .edit-form .post-form input {
     margin: 0;
   }
+  .post-list .container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
+/*@media (min-width: 768px) {
+  .post-list .container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}*/
 @media (max-width: 500px) {
   .copyright {
     display: block;
@@ -356,6 +396,25 @@ button {
   .about p#gravImg {
     text-align: center;
     float: none;
+  }
+  .post {
+    position: relative;
+  }
+  .post-list .container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .hover-info {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  .hover-info h2 {
+    text-align: center;
+    color: #000;
+    background-color: grey;
+    margin-bottom: 0;
   }
 }
 

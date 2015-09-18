@@ -1,9 +1,10 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-            
+        
+        <div class="container">
             <section class="post">
-                <h1>{{ post.title }}</h1>
+                <h2>{{ post.title }}</h2>
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <p><img class="pop" src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}"></p>
@@ -66,6 +67,7 @@
                         <p>No comments here yet :(</p>
                     {% endfor %}
             </section>
+        </div>
                 
             <!-- Modal -->
             <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
