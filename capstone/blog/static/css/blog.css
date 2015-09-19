@@ -37,6 +37,13 @@ a.btn.btn-default {
   top: 10px;
   position: absolute;
 }
+
+.Pen:before {
+  font-family: 'Glyphicons Halflings';
+  content:"\e006";
+}
+
+
 .comments {
   margin-bottom: 10px;
 }
@@ -109,7 +116,9 @@ footer span {
     float: right;
     color: #828282;
 }
-
+.published-date p {
+  float: right;
+}
 .save {
     float: right;
 }

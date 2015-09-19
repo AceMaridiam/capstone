@@ -9,9 +9,11 @@ from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar
 
 # Create your models here.
 
+
 def generate_filename(instance, filename):
 	ext = filename.split('.')[-1]
 	return 'images/' + str(int(time())) + '.' + ext
+
 
 class Post(models.Model):
 	author         = models.ForeignKey('auth.User')
@@ -20,7 +22,8 @@ class Post(models.Model):
 	duration       = models.TimeField()
 	created_date   = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	image          = models.ImageField(upload_to="images/", blank=True, null=True)
+	image          = models.ImageField(upload_to="images/", blank=True, null=True)	
+	tool_choice    = models.ManyToManyField('Tool', related_name='tool')
 			
 
 	def publish(self):
@@ -32,7 +35,6 @@ class Post(models.Model):
 
 class Tool(models.Model):
 	tool_type = models.CharField(max_length=255)
-	tool     = models.ForeignKey(Post)
 
 	def __str__(self):
 		return self.tool_type

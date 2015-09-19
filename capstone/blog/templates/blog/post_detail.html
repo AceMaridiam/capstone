@@ -8,23 +8,30 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <p><img class="pop" src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}"></p>
+                        <p class="pageViews"></p>
                     </div>
                     <div class="col-md-6 col-sm-12">
+                        {% if post.published_date %}
+                            <div class="col-xs-12 published-date">
+                                <p>{{ post.published_date }}</p>
+                            </div>
+                        {% else %}
+                            <div class="col-xs-12">
+                                <a class="btn btn-default" href="{% url "blog.views.post_publish" pk=post.pk %}">Publish</a>
+                            </div>
+                        {% endif %}
                         <p>{{ post.text|linebreaks }}</p>
+                        {% for choice in post.tool_choice.all %}
+                            <div class="{{ choice }}">
+                                <h1>hi</h1>
+                            </div>
+                        {% empty %}
+                            No tags!
+                        {% endfor %}
                     </div>
                 </div>
-                {# <p>published: {{ post.published_date }}</p> #}
                 <div class="row">
-                    {% if post.published_date %}
-                        <div class="col-xs-6">
-                            <p>{{ post.published_date }}</p>
-                        </div>
-                    {% else %}
-                        <div class="col-xs-6">
-                            <a class="btn btn-default" href="{% url "blog.views.post_publish" pk=post.pk %}">Publish</a>
-                        </div>
-                    {% endif %}
-                    <div class="col-xs-6">
+                    <div class="col-xs-12">
                         <a class="btn btn-default" href="{% url "post_edit" pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a class="btn btn-default" href="{% url "post_remove" pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                     </div>
@@ -59,8 +66,6 @@
                                 <p>{{ comment.created_date|date:"M/d/Y" }}</p>
                             </div>
                         </div>
-                            {# <a href="{% url "blog.views.post_detail" pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a> #}
-                       {#  </div> #}
                     {% endif %}
                 </div>
                     {% empty %}
