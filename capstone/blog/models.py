@@ -33,11 +33,13 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
+# Model for adding art tools. aka: Pen, Ruler, etc...
 class Tool(models.Model):
 	tool_type = models.CharField(max_length=255)
 
 	def __str__(self):
 		return self.tool_type
+
 
 @receiver(post_delete, sender=Post)
 def image_post_delete_handler(sender, **kwargs):
@@ -62,9 +64,9 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
+
 # Gravatar
-# Set your variables here
-email = "someone@somewhere.com"
+email = "doug,haghan@gmail.com"
 default = "http://www.example.com/default.jpg"
 size = 300
  
