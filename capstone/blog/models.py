@@ -22,7 +22,7 @@ class Post(models.Model):
 	duration       = models.CharField(max_length=255)
 	created_date   = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	image          = models.ImageField(upload_to="images/", blank=True, null=True)	
+	image          = models.ImageField(upload_to="images/", default="/static/media/images/1.jpg", null=False, blank=True)	
 	tool_choice    = models.ManyToManyField('Tool', related_name='tool')
 			
 
