@@ -23,7 +23,7 @@
                         <p>{{ post.text|linebreaks }}</p>
                         <div class="row tools">
                             {% for choice in post.tool_choice.all %}
-                                <div class="icon icon-{{ choice }} col-xs-1">
+                                <div class="icon icon-{{ choice }} col-xs-1" data-toggle="tooltip" title="Hello!">
                                     <span></span>
                                 </div>
                             {% empty %}
