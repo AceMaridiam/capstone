@@ -19,7 +19,7 @@ class Post(models.Model):
 	author         = models.ForeignKey('auth.User')
 	title          = models.CharField(max_length=255)
 	text           = models.TextField()
-	duration       = models.TimeField()
+	duration       = models.CharField(max_length=255)
 	created_date   = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 	image          = models.ImageField(upload_to="images/", blank=True, null=True)	
@@ -32,6 +32,12 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	@property
+	def image_url(self):
+		if self.image and hasattr(self.image, 'url'):
+			return self.image.url
+	
 
 # Model for adding art tools. aka: Pen, Ruler, etc...
 class Tool(models.Model):

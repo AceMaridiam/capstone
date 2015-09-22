@@ -24,10 +24,11 @@ def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            post = form.cleaned_data.save(commit=False)
+            post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
+            form.save_m2m() # needed since using commit=False
             return redirect('blog.views.post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -40,10 +41,11 @@ def post_edit(request, pk):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            post = form.cleaned_data.save(commit=False)
+            post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
+            form.save_m2m() # needed since using commit=False
             return redirect('blog.views.post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)

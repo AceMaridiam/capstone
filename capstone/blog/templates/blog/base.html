@@ -38,24 +38,22 @@
 {% if user.is_authenticated %}
 <div class="post-box">
 	<div class="col-xs-12">
-		<div class="col-xs-6">
+		<div class="col-xs-6 postButton">
 			<!-- New blog post pulsing button -->
 			<a href="{% url "post_new" %}">
-				<div id="postContainer">
+				<div id="buttonContainer" class="post">
 					<div class="dot"></div>
 					<div class="pulse"></div>
 				</div>
 			</a>
 		</div>
-		<div class="col-xs-6">
+		<div class=" col-xs-6 draftButton">
 			<!-- Draft posts pulsing button -->
 			<a href="{% url "post_draft_list" %}">
-				<div id="draftContainer">
+				<div id="buttonContainer" class="draft">
 					<div class="dot"></div>
 					<div class="pulse">
-						{% for post in posts %}
-							<span class="draftNum">{{ post.created_date|length }}</span>
-						{% endfor %}
+						<span class="draftNum">{{ posts|length }}</span>
 					</div>
 				</div>
 			</a>
@@ -85,18 +83,19 @@
 	</footer>
 {% endif %}
 
+<div class="subscribe">
+	<div class="subscribe-tab">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</div>
+	<h2>Join Mailing List</h2>
+	<input type="text">
+</div>
+
 		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="{% static "js/custom.js" %}"></script>
-<script>
-	$(function() {
-		$('.pop').on('click', function() {
-			$('.imagepreview').attr('src', $(this).find('img').attr('src'));
-			$('#imagemodal').modal('show');   
-		});		
-	});
-</script>
+
 
 </body>
 </html>

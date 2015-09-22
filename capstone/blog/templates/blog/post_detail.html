@@ -5,29 +5,31 @@
         <div class="container">
             <section class="post">
                 <h2>{{ post.title }}</h2>
+                {% if post.published_date %}
+                    <div class="published-date">
+                        <p>{{ post.published_date }}</p>
+                    </div>
+                {% else %}
+                    <div>
+                        <a class="btn btn-default" href="{% url "blog.views.post_publish" pk=post.pk %}">Publish</a>
+                    </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <p><img class="pop" src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}"></p>
                         <p class="pageViews"></p>
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        {% if post.published_date %}
-                            <div class="col-xs-12 published-date">
-                                <p>{{ post.published_date }}</p>
-                            </div>
-                        {% else %}
-                            <div class="col-xs-12">
-                                <a class="btn btn-default" href="{% url "blog.views.post_publish" pk=post.pk %}">Publish</a>
-                            </div>
-                        {% endif %}
                         <p>{{ post.text|linebreaks }}</p>
-                        {% for choice in post.tool_choice.all %}
-                            <div class="{{ choice }}">
-                                <h1>hi</h1>
-                            </div>
-                        {% empty %}
-                            No tags!
-                        {% endfor %}
+                        <div class="row tools">
+                            {% for choice in post.tool_choice.all %}
+                                <div class="icon icon-{{ choice }} col-xs-1">
+                                    <span></span>
+                                </div>
+                            {% empty %}
+                                <!-- no tags -->
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 <div class="row">
