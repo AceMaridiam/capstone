@@ -66,23 +66,23 @@ $(document).ready(function() {
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
 	// hover info boxes text content
-	$(".icon").mouseenter(function(){
-		if($(this).hasClass('icon-technical-pen')) {
-	    	$(this).attr('data-original-title', "Pen - 0.5 & 0.7 Micron");
-	    }
-	    if($(this).hasClass('icon-compass')) {
-	    	$(this).attr('data-original-title', "Compass - An antique used to get highly accurate circles");
-	    }
-	    if($(this).hasClass('icon-pen')) {
-	    	$(this).attr('data-original-title', "Dipping Pen - used with hand mixed ink(s)");
-	    }
-	    if($(this).hasClass('icon-lightbox')) {
-	    	$(this).attr('data-original-title', "Lightbox - to help draw and transer shapes");
-	    }
-	    if($(this).hasClass('icon-airbrush')) {
-	    	$(this).attr('data-original-title', "Airbrush - for smooth and elegant color transitions");
-	    }
-	});
+	// $(".icon").mouseenter(function(){
+	// 	if($(this).hasClass('icon-technical-pen')) {
+	//     	$(this).attr('data-original-title', "Pen - 0.5 & 0.7 Micron");
+	//     }
+	//     if($(this).hasClass('icon-compass')) {
+	//     	$(this).attr('data-original-title', "Compass - An antique used to get highly accurate circles");
+	//     }
+	//     if($(this).hasClass('icon-pen')) {
+	//     	$(this).attr('data-original-title', "Dipping Pen - used with hand mixed ink(s)");
+	//     }
+	//     if($(this).hasClass('icon-lightbox')) {
+	//     	$(this).attr('data-original-title', "Lightbox - to help draw and transer shapes");
+	//     }
+	//     if($(this).hasClass('icon-airbrush')) {
+	//     	$(this).attr('data-original-title', "Airbrush - for smooth and elegant color transitions");
+	//     }
+	// });
 
 	
 	
