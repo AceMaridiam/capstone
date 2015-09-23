@@ -6,14 +6,15 @@
 		<div class="container">
 
 			{% for post in posts %}
-
+				{%  if post.published == True %}
 				<div class="col-md-4 col-sm-6 col-xs-6 post">
-					<a href="{% url "post_detail" pk=post.pk %}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}" class="img-responsive"></a>
+					<a href="{% url "post_detail" pk=post.pk %}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title }}" class="img-responsive">
 					<div class="hover-info">
 						<h2><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></h2>
 					</div>
+					</a>
 				</div>
-
+				{% endif %}
 			{% endfor %}
 
 		</div>

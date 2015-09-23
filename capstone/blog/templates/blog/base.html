@@ -1,9 +1,10 @@
 {% load staticfiles %}
+{% load drafttag %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Dougink | Home</title>
+	{% block title %}<title>Dougink | Home</title>{% endblock %}
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{% static "css/blog.css" %}">
@@ -24,8 +25,7 @@
   <div class="menu col-sm-5 col-xs-5">
   	<ul>
 		<li><a href="{% url 'about' %}">About</a></li>
-		<li><a href="">Facebook</a></li>
-		<li><a href="">Twitter</a></li>
+		{# <li><a href="{% url 'updates' %}">Updates</a></li> #}
 	</ul>
   </div>
 </header>
@@ -53,7 +53,7 @@
 				<div id="buttonContainer" class="draft">
 					<div class="dot"></div>
 					<div class="pulse">
-						<span class="draftNum">{{ posts|length }}</span>
+						<span class="draftNum">{% draft %}</span>
 					</div>
 				</div>
 			</a>
@@ -89,7 +89,7 @@
 	</div>
 	<h2>Join Mailing List</h2>
 	<input type="text">
-	<<button class="btn btn-default" type="submit">Submit</button>
+	<button class="btn btn-default" type="submit">Submit</button>
 </div>
 
 		

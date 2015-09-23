@@ -24,6 +24,7 @@ class Post(models.Model):
 	published_date = models.DateTimeField(blank=True, null=True)
 	image          = models.ImageField(upload_to="images/", default="/static/media/images/1.jpg", null=False, blank=True)	
 	tool_choice    = models.ManyToManyField('Tool', related_name='tool')
+	published      = models.BooleanField(default=False)
 			
 
 	def publish(self):
@@ -41,7 +42,9 @@ class Post(models.Model):
 
 # Model for adding art tools. aka: Pen, Ruler, etc...
 class Tool(models.Model):
-	tool_type = models.CharField(max_length=255)
+	tool_type   = models.CharField(max_length=255)
+	name        = models.CharField(max_length=255, default="Tool Name")
+	description = models.CharField(max_length=255, default="Tool Description")
 
 	def __str__(self):
 		return self.tool_type
