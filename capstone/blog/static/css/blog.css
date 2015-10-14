@@ -23,6 +23,7 @@ a.btn.btn-default {
 }
 #wrapper {
   min-height: 500px;
+  /*border-image: url("/media/images/border-image.png") 25% repeat repeat;*/
 }
 .post-list {
   overflow: auto;

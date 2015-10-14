@@ -14,83 +14,86 @@
 </head>
 <body>
 
-
-<header class="page-header">
-  <div class=" logo col-sm-7 col-xs-7">
-	<a href="/">
-		<h1>Dougink</h1>
-	</a>
-	<h2>The pen and ink art of Douglas Haghan</h2>
-  </div>
-  <div class="menu col-sm-5 col-xs-5">
-  	<ul>
-		<li><a href="{% url 'about' %}">About</a></li>
-		{# <li><a href="{% url 'updates' %}">Updates</a></li> #}
-	</ul>
-  </div>
-</header>
-
 <div id="wrapper">
-	{% block content %}
-	{% endblock %}
-</div>
 
-{% if user.is_authenticated %}
-<div class="post-box">
-	<div class="col-xs-12">
-		<div class="col-xs-6 postButton">
-			<!-- New blog post pulsing button -->
-			<a href="{% url "post_new" %}">
-				<div id="buttonContainer" class="post">
-					<div class="dot"></div>
-					<div class="pulse"></div>
-				</div>
-			</a>
-		</div>
-		<div class=" col-xs-6 draftButton">
-			<!-- Draft posts pulsing button -->
-			<a href="{% url "post_draft_list" %}">
-				<div id="buttonContainer" class="draft">
-					<div class="dot"></div>
-					<div class="pulse">
-						<span class="draftNum">{% draft %}</span>
+	<header class="page-header">
+	  <div class=" logo col-sm-7 col-xs-7">
+		<a href="/">
+			<h1>Dougink</h1>
+		</a>
+		<h2>The pen and ink art of Douglas Haghan</h2>
+	  </div>
+	  <div class="menu col-sm-5 col-xs-5">
+	  	<ul>
+			<li><a href="{% url 'about' %}">About</a></li>
+			{# <li><a href="{% url 'updates' %}">Updates</a></li> #}
+		</ul>
+	  </div>
+	</header>
+
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+
+	{% if user.is_authenticated %}
+	<div class="post-box">
+		<div class="col-xs-12">
+			<div class="col-xs-6 postButton">
+				<!-- New blog post pulsing button -->
+				<a href="{% url "post_new" %}">
+					<div id="buttonContainer" class="post">
+						<div class="dot"></div>
+						<div class="pulse"></div>
 					</div>
-				</div>
-			</a>
+				</a>
+			</div>
+			<div class=" col-xs-6 draftButton">
+				<!-- Draft posts pulsing button -->
+				<a href="{% url "post_draft_list" %}">
+					<div id="buttonContainer" class="draft">
+						<div class="dot"></div>
+						<div class="pulse">
+							<span class="draftNum">{% draft %}</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="logout col-xs-12">
+			<a href="{% url "django.contrib.auth.views.logout" %}"><p>Hello {{ user.username }} | <em>Log out</a></em></p>
 		</div>
 	</div>
-	<div class="logout col-xs-12">
-		<a href="{% url "django.contrib.auth.views.logout" %}"><p>Hello {{ user.username }} | <em>Log out</a></em></p>
-	</div>
-</div>
-<footer>
-	<div class="container">
-		<div class="col-md-2 col-sm-2 col-xs-12">
-			<p class="copyright">DougInk &copy;{{ year }}</p>
-		</div>
-	</div>
-</footer>
-{% else %}
 	<footer>
 		<div class="container">
 			<div class="col-md-2 col-sm-2 col-xs-12">
 				<p class="copyright">DougInk &copy;{{ year }}</p>
 			</div>
 		</div>
-		<div class="login">
-			<a href="{% url "django.contrib.auth.views.login" %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-		</div>
 	</footer>
-{% endif %}
+	{% else %}
+		<footer>
+			<div class="container">
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<p class="copyright">DougInk &copy;{{ year }}</p>
+				</div>
+			</div>
+			<div class="login">
+				<a href="{% url "django.contrib.auth.views.login" %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+			</div>
+		</footer>
+	{% endif %}
 
-<div class="subscribe">
-	<div class="subscribe-tab">
-		<span class="glyphicon glyphicon-chevron-right"></span>
+	<div class="subscribe">
+		<div class="subscribe-tab">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</div>
+		<h2>Join Mailing List</h2>
+		<input type="text">
+		<button class="btn btn-default" type="submit">Submit</button>
 	</div>
-	<h2>Join Mailing List</h2>
-	<input type="text">
-	<button class="btn btn-default" type="submit">Submit</button>
-</div>
+
+<div> <!--/ wrapper -->
 
 		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
