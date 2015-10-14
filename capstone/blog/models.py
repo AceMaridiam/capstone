@@ -5,7 +5,7 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 import urllib, hashlib
-from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
+# from django_gravatar.helpers import get_gravatar_url, has_gravatar, get_gravatar_profile_url, calculate_gravatar_hash
 
 # Create your models here.
 
@@ -75,12 +75,12 @@ class Comment(models.Model):
 
 
 # Gravatar
-email = "doug,haghan@gmail.com"
+email = "doug.haghan@gmail.com"
 default = "http://www.example.com/default.jpg"
 size = 300
  
 # construct the url
-gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
-gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+# gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?"
+# gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
 
 
